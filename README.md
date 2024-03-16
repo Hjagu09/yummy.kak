@@ -1,8 +1,8 @@
 # YUMMY.kak
 
-![Screenshot from 2024-03-16 14-00-13](https://github.com/Hjagu09/yummy.kak/assets/110788066/79152ab2-0d11-4a00-a590-6679ac383e1a)
-![yummy_dev_config](https://github.com/Hjagu09/yummy.kak/assets/110788066/e8c996ad-d3ab-4ee5-928a-1da7bec0e9b9)
-![yummy_powerline_left](https://github.com/Hjagu09/yummy.kak/assets/110788066/38b5d411-3612-4ccf-9813-006d9790d0a0)
+![Screenshot from 2024-03-16 14-00-13](https://github.com/Hjagu09/yummy.kak/assets/110788066/be12a958-73e9-45d3-9f26-f86972f2f524)
+![dev_conf_v2](https://github.com/Hjagu09/yummy.kak/assets/110788066/611144f3-73d8-4468-83f5-cfb5939ca4c6)
+![Screenshot from 2024-03-16 22-13-41](https://github.com/Hjagu09/yummy.kak/assets/110788066/ee25c326-5583-429a-83df-12a6f4199c3f)
 ![yummy_std_config](https://github.com/Hjagu09/yummy.kak/assets/110788066/2ac204a7-9c8b-430e-9ad0-df2408587e3c)
 ![Screenshot from 2024-03-16 14-02-36](https://github.com/Hjagu09/yummy.kak/assets/110788066/e30920f7-991b-4138-b738-b9b6d905e882)
 
@@ -43,11 +43,11 @@ All modules expected mode are rendered with the face yummy_[module name]_face. A
 yummy_configs.kak contain a few example config. Feel free to use them as is or look at them for reference.
 
 **yummy_powerline_config**
-![Screenshot from 2024-03-16 14-00-13](https://github.com/Hjagu09/yummy.kak/assets/110788066/79152ab2-0d11-4a00-a590-6679ac383e1a)
+![powerline_v2](https://github.com/Hjagu09/yummy.kak/assets/110788066/7648c1e3-dd6a-4a76-8126-07b32fdb3ae1)
 **yummy_devs_config** This is my config :). It's the only one that hard codes colors
-![yummy_dev_config](https://github.com/Hjagu09/yummy.kak/assets/110788066/e8c996ad-d3ab-4ee5-928a-1da7bec0e9b9)
+![dev_conf_v2](https://github.com/Hjagu09/yummy.kak/assets/110788066/cc857d90-eff6-4958-bfff-7f47badd3cea)
 **yumy_powerline_left_config** Powerline but to the left
-![yummy_powerline_left](https://github.com/Hjagu09/yummy.kak/assets/110788066/38b5d411-3612-4ccf-9813-006d9790d0a0)
+![Screenshot from 2024-03-16 22-13-41](https://github.com/Hjagu09/yummy.kak/assets/110788066/aa5ed0f5-1e3d-4d93-b8b2-d77cab549fe9)
 **yummy_std_config** kinda boring simple example config
 ![yummy_std_config](https://github.com/Hjagu09/yummy.kak/assets/110788066/2ac204a7-9c8b-430e-9ad0-df2408587e3c)
 **yummy_the_rigth_side_config** simpel one side config
