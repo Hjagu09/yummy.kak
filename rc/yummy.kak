@@ -64,6 +64,36 @@ provide-module yummy %{
 	face global yummy_selection_face StatusLineInfo
 	echo -debug "[yummy]: loaded yummy module selection"
 
+	# git branch
+	declare-option -docstring "name of the git branch holding the current buffer" \
+		str yummy_git_branch
+	hook global WinCreate .* %{
+		hook window NormalIdle .* %{ evaluate-commands %sh{
+			branch=$(cd "$(dirname "${kak_buffile}")" && git rev-parse --abbrev-ref HEAD 2>/dev/null)
+			printf 'set window yummy_git_branch %%{%s}' "${branch}"
+		} }
+	}
+	declare-option -docstring "SH string for git module rendering."\
+		str yummy_git_format %{$([ -n "$kak_opt_yummy_git_branch" ] && printf %s "  $kak_opt_yummy_git_branch")}
+	face global yummy_git_face StatusLine
+
+	# lsp_error
+	declare-option -docstring "SH string for lsp_error module"\
+		str yummy_lsp_error_format %{$([ "$kak_opt_lsp_diagnostic_error_count" != "0" ] && printf %s "  $kak_opt_lsp_diagnostic_error_count")}
+	face global yummy_lsp_error_face StatusLineValue
+	# lsp_warn
+	declare-option -docstring "SH string for lsp_warn module"\
+		str yummy_lsp_warn_format %{$([ "$kak_opt_lsp_diagnostic_warning_count" != "0" ] && printf %s "  $kak_opt_lsp_diagnostic_warning_count")}
+	face global yummy_lsp_warn_face StatusLineValue
+	# lsp_info
+	declare-option -docstring "SH string for lsp_info module"\
+		str yummy_lsp_info_format %{$([ "$kak_opt_lsp_diagnostic_info_count" != "0" ] && printf %s "  $kak_opt_lsp_diagnostic_info_count")}
+	face global yummy_lsp_info_face StatusLineValue
+	# lsp_hint
+	declare-option -docstring "SH string for lsp_hint module"\
+		str yummy_lsp_hint_format %{$([ "$kak_opt_lsp_diagnostic_hint_count" != "0" ] && printf %s "  $kak_opt_lsp_diagnostic_hint_count")}
+	face global yummy_lsp_hint_face StatusLineValue
+
 	#################
 	## driver code ##
 	#################
@@ -103,6 +133,11 @@ provide-module yummy %{
 			# kak_opt_yummy_modified_format
 			# kak_opt_yummy_client_server_format
 			# kak_opt_yummy_selection_format
+			# kak_opt_yummy_git_format
+			# kak_opt_yummy_lsp_error_format
+			# kak_opt_yummy_lsp_warn_format
+			# kak_opt_yummy_lsp_info_format
+			# kak_opt_yummy_lsp_hint_format
 			
 			
 			# here we build the format strings for use in SH when
@@ -111,8 +146,8 @@ provide-module yummy %{
 				eval printf %s "\"$(
 					printf "$kak_opt_yummy_fmt_left"  |
 					sed 's/\$\(\w*\)/$kak_opt_yummy_\1_format/g'
-				)\"")  }"
-			printf "%s\n" "set global yummy_shellfmt_right %{  $(
+				)\"")}"
+			printf "%s\n" "set global yummy_shellfmt_right %{$(
 				eval printf %s "\"$(
 					printf "$kak_opt_yummy_fmt_right" |
 					sed 's/\$\(\w*\)/$kak_opt_yummy_\1_format/g'
@@ -124,8 +159,8 @@ provide-module yummy %{
 				eval printf %s "\"$(
 					printf "$kak_opt_yummy_fmt_left" |
 					sed 's/\$\(\w*\)/{yummy_\1_face}%sh{printf \\"$kak_opt_yummy_\1_format\\"}{StatusLine}/g'
-				)\"")  }"
-			printf "%s\n" "set global yummy_kakfmt_right  %{  $(
+				)\"")}"
+			printf "%s\n" "set global yummy_kakfmt_right  %{$(
 				eval printf %s "\"$(
 					printf "$kak_opt_yummy_fmt_right" |
 					sed 's/\$\(\w*\)/{yummy_\1_face}%sh{printf \\"$kak_opt_yummy_\1_format\\"}{StatusLine}/g'

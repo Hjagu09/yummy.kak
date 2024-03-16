@@ -14,6 +14,7 @@ Put the yummy.kak and yummy_configs.kak script in your autoload or install it us
 require-module yummy_std_config
 yummy-enable
 ```
+Some modules (git, lsp, powerline_config) also require a NERD font or that you change the config to use other text icons.
 
 ## configuring
 The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth. there exactly what you think they are, the format of the left and right side of the bar. They may contain module names preceded by a dollar sign and free text that's to be rendered using the StatusLine face. Valid modules are:
@@ -24,6 +25,11 @@ The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth.
 + **clock:** a clock. could also be used to display the current date
 + **client_servee:** displays the current client and server names
 + **selection:** selection location and count
++ **git:** current git branch
++ **lsp_error:** lsp error count
++ **lsp_warn:** lsp warning count
++ **lsp_info:** lsp info count
++ **lsp_hint:** lsp hint count
 
 All modules expected mode are rendered with the face yummy_[module name]_face. All faces are buy default derived from the standard kakoune status line faces. Some modules also expose additional options to customize them.
 
@@ -31,7 +37,7 @@ All modules expected mode are rendered with the face yummy_[module name]_face. A
 + bufname exposes the SH string used to generate it
 + modified exposes a option for the text icon used and also a option for the SH string used to render the module
 + the clock module exposes the time format. This is passed to the command line date to get the current time
-+ client_server and selections exposes one SH string each used to render them
++ client_server, selections, git and all the lsp modules  exposes one SH string each that's used to render them
 
 ## example configurations
 yummy_configs.kak contain a few example config. Feel free to use them as is or look at them for reference.
