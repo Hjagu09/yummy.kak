@@ -17,7 +17,7 @@ yummy-enable
 Some modules (git, lsp, powerline_config) also require a NERD font or that you change the config to use other text icons.
 
 ## configuring
-The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth. there exactly what you think they are, the format of the left and right side of the bar. They may contain module names preceded by a dollar sign and free text that's to be rendered using the StatusLine face. Valid modules are:
+The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth. There exactly what you think they are, the format of the left and right side of the bar. They may contain module names preceded by a dollar sign and free text that's to be rendered using the StatusLine face. Valid modules are:
 
 + **mode:** the current mode, insert/normal
 + **bufname:** name of the current buffer
@@ -31,13 +31,13 @@ The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth.
 + **lsp_info:** lsp info count
 + **lsp_hint:** lsp hint count
 
-All modules expected mode are rendered with the face yummy_[module name]_face. All faces are buy default derived from the standard kakoune status line faces. Some modules also expose additional options to customize them.
+All modules expected mode are rendered with the face yummy_[module name]_face. All faces are by default derived from the standard kakoune status line faces. Some modules also expose additional options to customize them.
 
 + mode exposes two options for the text shown in insert/normal mode. It also exposes two faces for use for rendering in normal/insert mode
 + bufname exposes the SH string used to generate it
 + modified exposes a option for the text icon used and also a option for the SH string used to render the module
-+ the clock module exposes the time format. This is passed to the command line date to get the current time
-+ client_server, selections, git and all the lsp modules  exposes one SH string each that's used to render them
++ the clock module exposes the time format. This is passed to the command line program date to get the current time
++ client_server, selections, git and all the lsp modules exposes one SH string each that's used to render them
 
 ## example configurations
 yummy_configs.kak contain a few example config. Feel free to use them as is or look at them for reference.
