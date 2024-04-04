@@ -17,7 +17,7 @@ yummy-enable
 Some modules (git, lsp, powerline_config) also require a NERD font or that you change the config to use other text icons.
 
 ## configuring
-The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth. there exactly what you think they are, the format of the left and right side of the bar. They may contain module names preceded by a dollar sign and free text that's to be rendered using the StatusLine face. Valid modules are:
+The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth. There exactly what you think they are, the format of the left and right side of the bar. They may contain module names preceded by a dollar sign and free text that's to be rendered using the StatusLine face. Valid modules are:
 
 + **mode:** the current mode, insert/normal
 + **bufname:** name of the current buffer
