@@ -31,13 +31,17 @@ The main variables used for configuration is yummy_fmt_left and yummy_fmt_rigth.
 + **lsp_info:** lsp info count
 + **lsp_hint:** lsp hint count
 
+There is also two modules that will only work on kakoune versions v2023.08.05-44-g5fdf0d08 or newer. Those are for that reson not included in any of the standard configs.
++ **register:** current selected register
++ **count:** current count for normal mode commands
+
 All modules expected mode are rendered with the face yummy_[module name]_face. All faces are buy default derived from the standard kakoune status line faces. Some modules also expose additional options to customize them.
 
 + mode exposes two options for the text shown in insert/normal mode. It also exposes two faces for use for rendering in normal/insert mode
 + bufname exposes the SH string used to generate it
 + modified exposes a option for the text icon used and also a option for the SH string used to render the module
 + the clock module exposes the time format. This is passed to the command line date to get the current time
-+ client_server, selections, git and all the lsp modules  exposes one SH string each that's used to render them
++ client_server, selections, git, register, count and all the lsp modules  exposes one SH string each that's used to render them
 
 ## example configurations
 yummy_configs.kak contain a few example config. Feel free to use them as is or look at them for reference.

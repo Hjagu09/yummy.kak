@@ -94,6 +94,18 @@ provide-module yummy %{
 		str yummy_lsp_hint_format %{$([ "$kak_opt_lsp_diagnostic_hint_count" != "0" ] && printf %s "  $kak_opt_lsp_diagnostic_hint_count")}
 	face global yummy_lsp_hint_face StatusLineValue
 
+	# register
+	face global yummy_register_face +b@StatusLine
+	declare-option -docstring "SH string used for register display"\
+		str yummy_register_format %{$([ -n "$kak_register" ] && printf %s " reg=$kak_register")}
+	echo -debug "[yummy]: loaded yummy module register"
+
+	# count
+	face global yummy_count_face +b@StatusLine
+	declare-option -docstring "SH string used for count display"\
+		str yummy_count_format %{$([ -n "$(printf "%s" "$kak_count" | sed 's/^0$//g')" ] && printf %s " count=$kak_count")}
+	echo -debug "[yummy]: loaded yummy module count"
+
 	#################
 	## driver code ##
 	#################
@@ -138,6 +150,8 @@ provide-module yummy %{
 			# kak_opt_yummy_lsp_warn_format
 			# kak_opt_yummy_lsp_info_format
 			# kak_opt_yummy_lsp_hint_format
+			# kak_opt_yummy_count_format
+			# kak_opt_yummy_register_format
 			
 			
 			# here we build the format strings for use in SH when
